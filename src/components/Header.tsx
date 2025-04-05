@@ -10,7 +10,9 @@ const Header = () => {
       <div className="flex items-center">
         <Sheet>
           <SheetTrigger asChild>
-            <Menu className="h-5 w-5 mr-3 cursor-pointer" />
+            <button className="border-none bg-transparent p-0 cursor-pointer">
+              <Menu className="h-5 w-5 mr-3" />
+            </button>
           </SheetTrigger>
           <SheetContent side="left" className="p-0">
             <Sidebar />
