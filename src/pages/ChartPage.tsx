@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from "react";
-import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ChevronDown, Plus, LineChart } from "lucide-react";
@@ -41,24 +40,30 @@ const ChartPage = () => {
     };
 
     return () => {
-      document.head.removeChild(script);
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
     };
   }, []);
 
   return (
     <div className={containerClass}>
-      <div className="flex items-center justify-between py-2 px-4 border-b">
+      <div className="flex items-center justify-between py-3 px-4 border-b">
         <div className="flex items-center">
           <span className="text-lg font-medium">M1</span>
           <ChevronDown className="ml-1 h-4 w-4" />
         </div>
         <div className="flex items-center space-x-3">
-          <Plus className="h-5 w-5" />
-          <LineChart className="h-5 w-5" />
+          <button className="text-gray-500 hover:text-gray-700">
+            <Plus className="h-5 w-5" />
+          </button>
+          <button className="text-gray-500 hover:text-gray-700">
+            <LineChart className="h-5 w-5" />
+          </button>
         </div>
       </div>
 
-      <div className="flex items-center p-2 border-b">
+      <div className="flex items-center p-3 border-b">
         <div className="flex items-center justify-between w-full">
           <div>
             <div className="font-medium">AUDCAD - M1</div>
@@ -66,7 +71,7 @@ const ChartPage = () => {
           </div>
           <div className="text-right">
             <div className="text-lg font-medium">0.8593</div>
-            <div className="flex text-xs">
+            <div className="flex text-xs text-gray-500">
               <span className="px-1">0.01</span>
             </div>
           </div>

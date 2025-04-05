@@ -16,7 +16,9 @@ const Index = () => {
   return (
     <div className={containerClass}>
       <Header />
-      <CurrencyList />
+      <div className="flex-1 overflow-y-auto bg-white">
+        <CurrencyList />
+      </div>
       <BottomNav />
     </div>
   );

@@ -19,7 +19,7 @@ const NavItem = ({ icon, label, to }: NavItemProps) => {
       to={to}
       className={cn(
         "flex flex-col items-center justify-center py-2", 
-        isActive ? "text-primary" : "text-gray-400"
+        isActive ? "text-blue-500" : "text-gray-400"
       )}
     >
       {icon}
@@ -30,7 +30,7 @@ const NavItem = ({ icon, label, to }: NavItemProps) => {
 
 const BottomNav = () => {
   return (
-    <div className="flex items-center justify-around border-t bg-white">
+    <div className="flex items-center justify-around border-t bg-white py-1">
       <NavItem 
         icon={<LineChart size={20} />} 
         label="Fiyatlar" 
