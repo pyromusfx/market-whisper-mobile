@@ -1,12 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from "react";
+import Header from "@/components/Header";
+import CurrencyList from "@/components/CurrencyList";
+import BottomNav from "@/components/BottomNav";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
+  // Styles for mobile optimization
+  const containerClass = isMobile 
+    ? "flex flex-col h-screen max-w-md mx-auto bg-background" 
+    : "flex flex-col h-screen max-w-md mx-auto bg-background shadow-lg";
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className={containerClass}>
+      <Header />
+      <CurrencyList />
+      <BottomNav />
     </div>
   );
 };
