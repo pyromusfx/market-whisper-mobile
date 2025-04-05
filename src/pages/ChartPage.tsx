@@ -1,8 +1,10 @@
 
 import React, { useEffect, useRef } from "react";
+import { ChevronDown, Plus, LineChart, Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import BottomNav from "@/components/BottomNav";
+import Sidebar from "@/components/Sidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ChevronDown, Plus, LineChart } from "lucide-react";
 
 const ChartPage = () => {
   const isMobile = useIsMobile();
@@ -10,8 +12,8 @@ const ChartPage = () => {
 
   // Styles for mobile optimization
   const containerClass = isMobile 
-    ? "flex flex-col h-screen max-w-md mx-auto bg-white" 
-    : "flex flex-col h-screen max-w-md mx-auto bg-white shadow-lg";
+    ? "flex flex-col h-screen max-w-md mx-auto bg-white pb-16" 
+    : "flex flex-col h-screen max-w-md mx-auto bg-white shadow-lg pb-16";
 
   // Setup TradingView widget
   useEffect(() => {
@@ -50,8 +52,20 @@ const ChartPage = () => {
     <div className={containerClass}>
       <div className="flex items-center justify-between py-3 px-4 border-b">
         <div className="flex items-center">
-          <span className="text-lg font-medium">M1</span>
-          <ChevronDown className="ml-1 h-4 w-4" />
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="border-none bg-transparent p-0 cursor-pointer">
+                <Menu className="h-5 w-5 mr-3" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="left" className="p-0">
+              <Sidebar />
+            </SheetContent>
+          </Sheet>
+          <div className="flex items-center">
+            <span className="text-lg font-medium">M1</span>
+            <ChevronDown className="ml-1 h-4 w-4" />
+          </div>
         </div>
         <div className="flex items-center space-x-3">
           <button className="text-gray-500 hover:text-gray-700">
@@ -60,21 +74,6 @@ const ChartPage = () => {
           <button className="text-gray-500 hover:text-gray-700">
             <LineChart className="h-5 w-5" />
           </button>
-        </div>
-      </div>
-
-      <div className="flex items-center p-3 border-b">
-        <div className="flex items-center justify-between w-full">
-          <div>
-            <div className="font-medium">AUDCAD - M1</div>
-            <div className="text-xs text-gray-500">Australian Dollar vs Canadian Dollar</div>
-          </div>
-          <div className="text-right">
-            <div className="text-lg font-medium">0.8593</div>
-            <div className="flex text-xs text-gray-500">
-              <span className="px-1">0.01</span>
-            </div>
-          </div>
         </div>
       </div>
 

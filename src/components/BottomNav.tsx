@@ -30,7 +30,7 @@ const NavItem = ({ icon, label, to }: NavItemProps) => {
 
 const BottomNav = () => {
   return (
-    <div className="flex items-center justify-around border-t bg-white py-1">
+    <div className="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t bg-white py-1 z-10">
       <NavItem 
         icon={<LineChart size={20} />} 
         label="Fiyatlar" 

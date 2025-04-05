@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between py-3 px-4 border-b bg-white">
+    <header className="sticky top-0 z-10 flex items-center justify-between py-3 px-4 border-b bg-white">
       <div className="flex items-center">
         <Sheet>
           <SheetTrigger asChild>
