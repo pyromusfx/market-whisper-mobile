@@ -45,7 +45,7 @@ const CurrencyPair = ({
   };
 
   return (
-    <div className={cn("flex items-center py-3 px-4 border-b border-gray-800", animation)}>
+    <div className={cn("flex items-center py-3 px-4 border-b", animation)}>
       <div className="flex-1">
         <div className="flex items-center">
           <span className="text-base font-semibold">{symbol}</span>
@@ -55,7 +55,7 @@ const CurrencyPair = ({
               changePct > 0 ? "text-trade-up" : "text-trade-down"
             )}
           >
-            {changePct > 0 ? "+" : ""}{changePct}%
+            {changePct > 0 ? "+" : ""}{changePct.toFixed(2)}%
           </span>
         </div>
         <div className="text-xs text-gray-400">{time}</div>
@@ -63,7 +63,9 @@ const CurrencyPair = ({
       
       <div className="flex flex-col items-end">
         <div className="flex items-center space-x-1">
-          <span className="text-lg font-medium">{formatPrice(price)}</span>
+          <span className={cn("text-lg font-medium", 
+            changePct > 0 ? "price-up" : "price-down"
+          )}>{formatPrice(price)}</span>
           <span className="text-xs">{(price + 0.0001).toFixed(price >= 10 ? 2 : 5)}</span>
         </div>
         <div className="flex text-xs text-gray-400">

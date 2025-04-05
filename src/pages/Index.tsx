@@ -10,8 +10,8 @@ const Index = () => {
 
   // Styles for mobile optimization
   const containerClass = isMobile 
-    ? "flex flex-col h-screen max-w-md mx-auto bg-background" 
-    : "flex flex-col h-screen max-w-md mx-auto bg-background shadow-lg";
+    ? "flex flex-col h-screen max-w-md mx-auto bg-white" 
+    : "flex flex-col h-screen max-w-md mx-auto bg-white shadow-lg";
 
   return (
     <div className={containerClass}>
